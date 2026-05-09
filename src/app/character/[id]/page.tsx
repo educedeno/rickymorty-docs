@@ -107,19 +107,27 @@ export default async function CharacterPage(props: Props) {
 
       <AISummary character={character} />
 
-      <section className="rounded-xl border border-[var(--border)] bg-[var(--surface)]">
-        <header className="flex items-center justify-between border-b border-[var(--border)] px-4 py-3">
+      <details className="group overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)]">
+        <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 transition hover:bg-[var(--surface-2)] [&::-webkit-details-marker]:hidden">
+          <span
+            aria-hidden
+            className="text-[var(--muted)] transition-transform group-open:rotate-90"
+          >
+            ▶
+          </span>
           <h2 className="text-sm font-semibold tracking-wide text-[var(--muted)]">
             RAW RESPONSE
           </h2>
-          <span className="rounded bg-[var(--surface-2)] px-2 py-0.5 font-mono text-xs text-[var(--accent)]">
+          <span className="ml-auto rounded bg-[var(--surface-2)] px-2 py-0.5 font-mono text-xs text-[var(--accent)]">
             200 OK · application/json
           </span>
-        </header>
-        <pre className="max-h-[480px] overflow-auto p-4 text-xs leading-relaxed">
-          {JSON.stringify(character, null, 2)}
-        </pre>
-      </section>
+        </summary>
+        <div className="border-t border-[var(--border)]">
+          <pre className="max-h-[480px] overflow-auto p-4 text-xs leading-relaxed">
+            {JSON.stringify(character, null, 2)}
+          </pre>
+        </div>
+      </details>
     </div>
   );
 }
