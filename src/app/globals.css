@@ -1,26 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b1020;
+  --surface: #111a30;
+  --surface-2: #18223d;
+  --border: #243154;
+  --foreground: #e6ecff;
+  --muted: #93a0c4;
+  --accent: #00e0a4;
+  --accent-2: #4ea1ff;
+  --danger: #ff5c7a;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-danger: var(--danger);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(78, 161, 255, 0.15), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(0, 224, 164, 0.12), transparent 60%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+pre {
+  font-family: var(--font-mono), ui-monospace, monospace;
 }
